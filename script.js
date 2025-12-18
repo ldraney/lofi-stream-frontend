@@ -1,7 +1,5 @@
 // Configuration
-const STATUS_API_URL = 'https://lofi-status.ldraney.com/status.json';
-// Fallback for development/testing
-const FALLBACK_STATUS_URL = 'http://135.181.150.82:8080/status.json';
+const STATUS_API_URL = 'http://135.181.150.82:8080/status.json';
 
 // Stream configuration - matches our infrastructure
 const STREAMS = [
@@ -58,24 +56,8 @@ async function fetchStatus() {
 
         return await response.json();
     } catch (error) {
-        console.warn('Primary status URL failed, trying fallback:', error);
-
-        try {
-            const fallbackResponse = await fetch(FALLBACK_STATUS_URL, {
-                method: 'GET',
-                mode: 'cors',
-                cache: 'no-cache'
-            });
-
-            if (!fallbackResponse.ok) {
-                throw new Error(`HTTP ${fallbackResponse.status}`);
-            }
-
-            return await fallbackResponse.json();
-        } catch (fallbackError) {
-            console.error('Fallback also failed:', fallbackError);
-            return null;
-        }
+        console.error('Failed to fetch status:', error);
+        return null;
     }
 }
 
