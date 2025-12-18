@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lofi Streams - Status</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lofi Streams</h1>
+            <p class="subtitle">24/7 ambient streams across platforms</p>
+            <div class="last-updated">
+                Last checked: <span id="last-updated">--</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="streams-grid" id="streams-grid">
+                <!-- Populated by JavaScript -->
+                <div class="loading">Checking stream status...</div>
+            </section>
+
+            <section class="sites-section">
+                <h2>Vibe Sites</h2>
+                <div class="sites-grid">
+                    <a href="https://ldraney.github.io/lofi-stream-youtube/" class="site-card night-city">
+                        <span class="site-icon">🌃</span>
+                        <span class="site-name">Night City</span>
+                    </a>
+                    <a href="https://ldraney.github.io/lofi-stream-twitch/" class="site-card coffee-shop">
+                        <span class="site-icon">☕</span>
+                        <span class="site-name">Coffee Shop</span>
+                    </a>
+                    <a href="https://ldraney.github.io/lofi-stream-kick/" class="site-card arcade">
+                        <span class="site-icon">🕹️</span>
+                        <span class="site-name">Arcade</span>
+                    </a>
+                    <a href="https://ldraney.github.io/lofi-stream-rumble/" class="site-card library">
+                        <span class="site-icon">📚</span>
+                        <span class="site-name">Library</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Infrastructure powered by Hetzner • Streams powered by FFmpeg</p>
+            <p><a href="https://ldraney.github.io/lofi-stream-docs/">Documentation</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
