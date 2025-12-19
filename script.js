@@ -9,7 +9,7 @@ const STREAMS = [
         platform: 'YouTube',
         service: 'lofi-stream',
         display: ':99',
-        watchUrl: 'https://www.youtube.com/@LofiNightCity/live',
+        watchUrl: 'https://www.youtube.com/@lucasdraney4137/live',
         siteUrl: 'https://ldraney.github.io/lofi-stream-youtube/'
     },
     {
@@ -18,7 +18,7 @@ const STREAMS = [
         platform: 'Twitch',
         service: 'lofi-stream-twitch',
         display: ':98',
-        watchUrl: 'https://www.twitch.tv/lofi_coffee_shop',
+        watchUrl: 'https://www.twitch.tv/devopsphilosopher',
         siteUrl: 'https://ldraney.github.io/lofi-stream-twitch/'
     },
     {
@@ -27,17 +27,8 @@ const STREAMS = [
         platform: 'Kick',
         service: 'lofi-stream-kick',
         display: ':97',
-        watchUrl: 'https://kick.com/lofi-arcade',
+        watchUrl: 'https://kick.com/skywalker939',
         siteUrl: 'https://ldraney.github.io/lofi-stream-kick/'
-    },
-    {
-        id: 'rumble',
-        name: 'Library',
-        platform: 'Rumble',
-        service: 'lofi-stream-rumble',
-        display: ':96',
-        watchUrl: 'https://rumble.com/c/LofiLibrary',
-        siteUrl: 'https://ldraney.github.io/lofi-stream-rumble/'
     },
     {
         id: 'dlive',
@@ -45,7 +36,7 @@ const STREAMS = [
         platform: 'DLive',
         service: 'lofi-stream-dlive',
         display: ':95',
-        watchUrl: 'https://dlive.tv/lofi-stream',
+        watchUrl: 'https://dlive.tv/skywalker939',
         siteUrl: 'https://ldraney.github.io/lofi-stream-dlive/'
     },
     {
@@ -54,7 +45,7 @@ const STREAMS = [
         platform: 'Odysee',
         service: 'lofi-stream-odysee',
         display: ':94',
-        watchUrl: 'https://odysee.com/@lofi-stream',
+        watchUrl: 'https://odysee.com/@lofi-stream:8/lofi-beats---deep-sea-vibes-24-7:4',
         siteUrl: 'https://ldraney.github.io/lofi-stream-odysee/'
     }
 ];
