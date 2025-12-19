@@ -38,6 +38,24 @@ const STREAMS = [
         display: ':96',
         watchUrl: 'https://rumble.com/c/LofiLibrary',
         siteUrl: 'https://ldraney.github.io/lofi-stream-rumble/'
+    },
+    {
+        id: 'dlive',
+        name: 'Space Station',
+        platform: 'DLive',
+        service: 'lofi-stream-dlive',
+        display: ':95',
+        watchUrl: 'https://dlive.tv/lofi-stream',
+        siteUrl: 'https://ldraney.github.io/lofi-stream-dlive/'
+    },
+    {
+        id: 'odysee',
+        name: 'Underwater',
+        platform: 'Odysee',
+        service: 'lofi-stream-odysee',
+        display: ':94',
+        watchUrl: 'https://odysee.com/@lofi-stream',
+        siteUrl: 'https://ldraney.github.io/lofi-stream-odysee/'
     }
 ];
 
