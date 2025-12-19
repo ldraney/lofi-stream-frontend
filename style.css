@@ -118,6 +118,16 @@ h1 {
     animation: none;
 }
 
+.status-warning .status-dot {
+    background: var(--accent-yellow);
+    animation: pulse 1s infinite;
+}
+
+.status-degraded .status-dot {
+    background: #f97316;
+    animation: pulse 1s infinite;
+}
+
 @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
@@ -126,7 +136,14 @@ h1 {
 .stream-platform {
     color: var(--text-secondary);
     font-size: 0.9rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.stream-reason {
+    color: var(--accent-red);
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+    font-style: italic;
 }
 
 .stream-links {

@@ -61,6 +61,25 @@ async function fetchStatus() {
     }
 }
 
+// Get status display info
+function getStatusDisplay(status) {
+    switch (status.status) {
+        case 'live':
+        case 'running':
+            return { class: 'status-live', text: 'LIVE', showReason: false };
+        case 'degraded':
+            return { class: 'status-degraded', text: 'DEGRADED', showReason: true };
+        case 'stalled':
+            return { class: 'status-warning', text: 'STALLED', showReason: true };
+        case 'down':
+            return { class: 'status-down', text: 'DOWN', showReason: true };
+        case 'stopped':
+            return { class: 'status-down', text: 'STOPPED', showReason: true };
+        default:
+            return { class: 'status-unknown', text: 'UNKNOWN', showReason: false };
+    }
+}
+
 // Render stream cards
 function renderStreams(statusData) {
     const grid = document.getElementById('streams-grid');
@@ -79,21 +98,21 @@ function renderStreams(statusData) {
 
     STREAMS.forEach(stream => {
         const status = statusData.streams?.[stream.id] || { status: 'unknown' };
-        const isLive = status.status === 'running' || status.status === 'live';
-        const statusClass = isLive ? 'status-live' : status.status === 'unknown' ? 'status-unknown' : 'status-down';
-        const statusText = isLive ? 'LIVE' : status.status === 'unknown' ? 'UNKNOWN' : 'DOWN';
+        const display = getStatusDisplay(status);
+        const reason = status.reason && display.showReason ? status.reason : '';
 
         const card = document.createElement('div');
         card.className = 'stream-card';
         card.innerHTML = `
             <div class="stream-header">
                 <span class="stream-name">${stream.name}</span>
-                <span class="stream-status ${statusClass}">
+                <span class="stream-status ${display.class}">
                     <span class="status-dot"></span>
-                    ${statusText}
+                    ${display.text}
                 </span>
             </div>
             <div class="stream-platform">${stream.platform}</div>
+            ${reason ? `<div class="stream-reason">${reason}</div>` : ''}
             <div class="stream-links">
                 <a href="${stream.watchUrl}" target="_blank" class="stream-link watch">Watch</a>
                 <a href="${stream.siteUrl}" target="_blank" class="stream-link site">Site</a>

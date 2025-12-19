@@ -12,21 +12,24 @@ Central hub showing:
 ## Architecture
 
 ```
-User visits GitHub Pages
+User visits VPS (http://135.181.150.82)
         │
         ▼
 ┌───────────────────────┐
-│  GitHub Pages         │  ← Static HTML/CSS/JS
-│  (this repo)          │
+│  VPS (135.181.150.82) │  ← Static HTML/CSS/JS + Dynamic status.json
+│  nginx serves both    │
+│  status.json by cron  │
 └───────────────────────┘
         │
-        │ JavaScript fetches
+        │ Links to vibe sites
         ▼
 ┌───────────────────────┐
-│  VPS (135.181.150.82) │  ← Dynamic status.json
-│  Updated by cron      │
+│  GitHub Pages         │  ← Individual stream vibe sites
+│  (separate repos)     │
 └───────────────────────┘
 ```
+
+Note: This repo is NOT deployed to GitHub Pages. The frontend is served directly from the VPS.
 
 ## Files
 
@@ -48,12 +51,13 @@ python3 -m http.server 8080
 # Open http://localhost:8080
 ```
 
-## VPS Status Endpoint
+## Deployment
 
-The VPS serves `/status.json` via nginx:
-- Updated every minute by cron
-- Located at `/var/www/html/status.json`
-- Served with CORS headers
+### Deploy frontend to VPS
+
+```bash
+scp index.html style.css script.js root@135.181.150.82:/var/www/html/
+```
 
 ### Deploy status script to VPS
 
@@ -62,6 +66,13 @@ scp scripts/status-api.sh root@135.181.150.82:/opt/scripts/
 ssh root@135.181.150.82 'chmod +x /opt/scripts/status-api.sh'
 ssh root@135.181.150.82 'crontab -l | grep -v status-api; echo "* * * * * /opt/scripts/status-api.sh" | crontab -'
 ```
+
+## VPS Status Endpoint
+
+The VPS serves both the frontend and `/status.json` via nginx:
+- Frontend at `/var/www/html/` (index.html, style.css, script.js)
+- Status updated every minute by cron
+- Located at `/var/www/html/status.json`
 
 ## Streams
 
